@@ -1,1 +1,0 @@
-web: gunicorn chaletoneoak.wsgi --log-file--
