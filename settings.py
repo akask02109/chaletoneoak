@@ -71,7 +71,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'oneoak.urls'
+ROOT_URLCONF = 'chaletoneoak.urls'
 
 TEMPLATES = [
     {
@@ -89,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'oneoak.wsgi.application'
+WSGI_APPLICATION = 'chaletoneoneoak.wsgi.application'
 
 
 # Database
@@ -145,9 +145,9 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'oneoak','static'),
+    os.path.join(BASE_DIR, 'chaletoneoak','static'),
 )
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'oneoak','locale'),
+    os.path.join(BASE_DIR, 'chaletoneoak','locale'),
 )
