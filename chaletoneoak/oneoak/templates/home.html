@@ -1,0 +1,1189 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="nirvarisApp">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--<link rel="icon" href="{% static 'image/fav.png' %}">-->
+	<link rel="icon" type="image/png" href="{% static 'image/favicon-32x32.png' %}" sizes="32x32" />
+	<link rel="icon" type="image/png" href="{% static 'image/favicon-16x16.png' %}" sizes="16x16" />
+    <title>{% block head_title %}{% trans 'Chalet One Oak' %}{% endblock %}</title>
+	
+	<link href="https://www.google.com/fonts#UsePlace:use/Collection:Lato:400,300,700" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/jquery.fullPage.css'%}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+</head>
+<body class="{% block body_class %}{% endblock %}" ng-controller="nirvarisCtrl">
+	<section>
+		
+		<header class="mainHeader hidden">
+			<div class="container">
+				<h1>
+					<img src="{% static 'image/logo.png' %}" alt="One OAK">
+				</h1>
+				<div class="viewNav">
+					<img src="{% static 'image/menu-icon.svg' %}" alt="Mostrar/Esconder menu">
+					<span class="vhide">{% trans 'Show/Hide Menu' %}</span>
+				</div>
+				<!-- End .viewNav-->
+				<nav class="mainNav navClose">
+					<ul>
+						<li><a href="#home">{% trans 'Home' %}</a></li>
+						<li><a href="#connection">{% trans 'Connection' %}</a></li>
+						<li><a href="#revive">{% trans 'Revive' %}</a></li>
+						<li><a href="#play">{% trans 'Play' %}</a></li>
+						<li><a href="#indulge">{% trans 'Indulge' %}</a></li>
+						<li><a href="#wine">{% trans 'Wine' %}</a></li>
+						<li><a href="#thechalet">{% trans 'The Chalet' %}</a></li>
+						<li><a href="#megeve">{% trans 'Megeve' %}</a></li>
+						<li><a href="#summer">{% trans 'Summer' %}</a></li>
+						<li><a href="#packages">{% trans 'Packages' %}</a></li>
+						<li><a href="#tariff">{% trans 'Tariff' %}</a></li>
+						<li><a href="#press">{% trans 'Press' %}</a></li>
+						<li><a href="#contact">{% trans 'Contact' %}</a></li>
+						<li><a href="#gallery">{% trans 'Gallery' %}</a></li>
+					</ul>
+				</nav>
+				<!-- End .mainNav -->
+			</div>
+		</header>
+		<!-- End .mainHeader -->
+		
+		<section id="fullpage" class="content">
+			
+			<section id="intro" class="intro parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/intro-small.jpg' %});">
+				<!--<iframe id="intro-video" src="https://player.vimeo.com/video/155213542?autoplay=1&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+				<video muted id="intro-video" class="">
+					<!--<source src="' + videoMp4 + '" type="video/mp4">
+					<source src="' + videoOgg + '" type="video/ogg">
+					<source src="' + videoWebm + '" type="video/webm">-->
+				</video>
+				<!--<video autoplay muted id="intro-video">
+				    <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI" />
+				</video>-->
+				<!-- http://blog.millermedeiros.com/html5-video-issues-on-the-ipad-and-how-to-solve-them/ -->
+				<div class="video-preloader">
+					<div id="circularG">
+						<div id="circularG_1" class="circularG"></div>
+						<div id="circularG_2" class="circularG"></div>
+						<div id="circularG_3" class="circularG"></div>
+						<div id="circularG_4" class="circularG"></div>
+						<div id="circularG_5" class="circularG"></div>
+						<div id="circularG_6" class="circularG"></div>
+						<div id="circularG_7" class="circularG"></div>
+						<div id="circularG_8" class="circularG"></div>
+					</div>
+				</div>
+				<div class="intro-skip">
+					<a href="#a_home" class="btn-skip-intro">Skip Intro <img src="{% static 'image/icon-next.png' %}" /></a>
+				</div>
+			</section>
+			<!-- End .intro -->
+			
+			<section id="home" class="home parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/home-2.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-1 col-md-2"></div>
+						<div class="col-xs-12 col-sm-6 col-md-4">
+							<div id="home-wrapper" class="content-wrapper">
+								<h1>{% trans 'Where Earth Meets Heaven' %}</h1>
+								<p>{% trans 'Chalet One Oak is nestled in the peaceful village of Combloux near Megeve, where the majestic Mont Blanc provides a background setting for more than a few fairy tales.' %}<br/>{% trans 'The estate is individually and beautifully designed to reflect the styles and influences of its surrounding. The contemporary style complements the traditions, people and crafts of its location and has its own distinctive life and energy.' %}<br/>{% trans 'One Oak brings an unprecedented sensory multiplex of hospitality, culinary delights and recreation to one of the most authentic European ski destinations.' %}</p>
+								<p>{% trans 'We welcome you to ONE OAK.' %}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .home -->
+			
+			<section id="connection" class="connection parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/reconnect.jpg' %}); background-position-y: 0;">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-1 col-md-5"></div>
+						<div class="col-xs-12 col-sm-6 col-md-5">
+							<div class="no-background">
+								<h1 class="noTopMargin noBottomMargin">{% trans 'Time together will always remain the greatest luxury' %}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .connection -->
+			
+			<section id="revive" class="revive parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/revive.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-1 col-md-2"></div>
+						<div class="col-sm-6 col-md-5">
+							<div id="revive-wrapper" class="content-wrapper">
+								<div class="transparentBackground">
+									<h1 class="noTopMargin">{% trans 'Eat Play Sleep' %}</h1>
+									<p>{% trans 'Escape to where iconic design and contemporary luxury set the stage for exclusive and extraordinary experiences at ONE OAK. From the moment of arrival, guests are invited into surprising, sensory environments where amplified entertainment, vibrant lounges, modern suites and innovative cuisine create more than just a holiday experience, but a luxury lifestyle destination. Curl up in the signature One Oak bed in 6 en suite guest rooms, including the master suite, with endless views of the Mt Blanc, its mountain range and the chamonix valley. With fully wired technology, fabulous entertainment and our intuitive service is at your command.' %}</p>
+									<p>{% trans 'As you stretch out in lavishly luxurious living room filled with every facet imaginable, with floor to ceiling windows and a 100 square meters of wrap around terraces for breathtaking views of the Mt Blanc, nothing is left to imagination. Take a whirl at the top of the world in our Jacuzzi on the extensive north terrace with views of the snow drenched mountains from every angle. Daringly dreamy!! as described by Paris Match, No wonder it is One of A kind - One Oak' %}</p>
+								</div>
+							</div>
+					</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .revive -->
+			
+			<section id="play" class="play parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/play.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-5 col-md-8"></div>
+						<div class="col-sm-6 col-md-4">
+							<div id="play-wrapper" class="content-wrapper">
+								<div class="transparentBackground">
+									<h1 class="noTopMargin">{% trans 'Ski, Ski and Ski' %}</h1>
+									<p>{% trans 'Megève&#39;s Alpine skiing area, known as the "Domaine Évasion Montblanc", comprises: Megève itself (Mont d&#39;Arbois, Jaillet, Rochebrune and Côte 2000), Saint-Gervais-les-Bains, Combloux, La Giettaz, Les Contamines-Montjoie and Saint-Nicolas-de-Véroce.' %}</p>
+									<p>{% trans 'The "Evasion Mont-blanc" range covers approx 445 km and includes some of the best ski slopes in Europe.' %}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .play -->
+			
+			<section id="indulge" class="indulge parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/indulge.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 col-md-5">
+							<div id="indulge-wrapper" class="content-wrapper">
+								<div class="transparentBackground">
+									<h1 class="noTopMargin">{% trans 'Menu Inspired by You' %}</h1>
+									<p>{% trans 'When it comes to dinning at One Oak, the chef offers a delightfully convivial experience that features lovingly prepared "family cooking".Choose from a menu inspired by the flavours and tastes of high altitude dinning.Best fresh and locally sourced seasonal ingredients with the culinary influences of savoyard, the chef offers an inspired yet simple and delicious interpretation of French Alpine cuisine.' %}</p>
+									<p>{% trans 'If you prefer an an alternative version, based on energy and vitality the menu offers healthy, balanced and elegantly presented recipes, for a joyful combination of nutrition and culinary delight. Like the Chalet, dining at One Oak offers a culinary trip around the world with a cosmopolitan menu prepared at your command.' %}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .indulge -->
+			
+			<section id="wine" class="wine parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/wine.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="nop-background">
+								<h1 class="noTopMargin noBottomMargin">{% trans 'Luxury Uncorked' %}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .wine -->
+			
+			<section id="thechalet" class="thechalet parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/thechalet.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 col-md-6">
+							<div id="thechalet-wrapper" class="content-wrapper">
+								<div class="transparentDarkBackground">
+									<h1 class="noTopMargin">{% trans 'Elevated Retreat' %}</h1>
+									<p>{% trans 'A tale of contemporary style romanced with megeve&#39;s elegant tradition' %}</p>
+									<p>{% trans 'Everything is larger than life in 600 square meters of pure One Oak, a 3 floor property with endless views of the Mt Blanc, its mountain range and the Chamonix valley.' %}</p>
+									<p>{% trans 'The Chalet accommodates 12 people in 6 bedrooms. It has 4 double bedroom suites with en suites, bunk bed room and the Master suite on its own floor. All bedrooms have floor to ceiling windows and their terraces with their own dramatic views of the mountains and the rolling country side. Situated on the 1st floor is its lavish luxurious living room, perfect for those intimate moments and to relax, eat and entertain.' %}</p>
+									<p>{% trans 'Fully wired technology, fabulous entertainment and our intuitive service at your command. The chalet is situated in Combloux. It is 5 minutes drive to the famous Princess ski lift and 7 minutes drive to Megeve village.' %}</p>
+									<p>{% trans 'The nearest international airport is Geneva (CH), 1 hour approximately and the local airport open to general aviation is 10 minutes drive.' %}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .thechalet -->
+			
+			<section id="megeve" class="megeve parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/megeve.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-5 col-md-7"></div>
+						<div class="col-sm-6 col-md-4">
+							<div id="megeve-wrapper" class="content-wrapper">
+								<div class="transparentDarkBackground">
+									<h1 class="noTopMargin">{% trans 'Essence of Rustic Chic' %}</h1>
+									<p>{% trans 'A minute or two is all it takes to fall under the spell of Megève. Icy cold air, the jingle of a horse-drawn carriage, the rush of a cascading mountain stream, the chiming of church bells. If you&#39;re lucky it will be snowing, sparkling flakes whirling down, turning the whole village into a scene of pure enchantment. It has a medieval heart, but it was, in a way, the original purpose-built French ski resort.' %}</p>
+									<p>{% trans 'No wonder this is where the French choose to ski.' %}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .megeve -->
+			
+			<section id="summer" class="summer parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/summer.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 col-md-5">
+							<div class="transparentDarkBackground">
+								<h1 class="noTopMargin">{% trans 'Summer' %}</h1>
+								<p>{% trans 'When only the snow-capped peaks remain and the sun shines high in the sky, the Alps are without doubt, one of the most beautiful areas in the world. Summer in the Alps is hot, spectacular and fun. The mountains provice the most remarkable adventure park for adults and kids alike. The mountains are a perfect place for a summer alpine holiday, whether you’re looking for total relaxation in the fresh air or adventure.' %}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .summer -->
+
+			<section id="packages" class="packages parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/packages.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div id="packages-wrapper" class="content-wrapper-multicolumn">
+							<div class="col-sm-12 col-md-6">
+								<div id="packages-wrapper-one" class="content-wrapper">
+									<div class="transparentDarkBackground">
+										<h1 class="noTopMargin">{% trans 'Winter Package 2015-16' %}</h1>
+										<p>{% trans 'The tariff consists of a week (7 nights) exclusive stay at the chalet.'%}</p>
+										<p>{% trans 'Shorter stays can be considered and tariffs are available upon request.'%}</p>
+										<p>{% trans 'Please email us at <a href="mailto:mystay@chaletoneoak.com">mystay@chaletoneoak.com</a>'%}</p>
+										<p>{% trans 'Check in time 3pm EST and Check out time 10am is EST.'%}</p>
+										<p>{% trans 'There are 2 service level packages available. Please check the tariff card for prices and availability.' %}</p>
+									</div>
+									<div class="big-spacer"></div>
+									<div class="transparentDarkBackground">
+										<h1 class="noTopMargin">{% trans 'Wonderful Package:' %}</h1>
+										<ul class="list">
+											<li>{% trans 'Tariff includes 7 nights exclusive stay of maximum 12 people'%}</li>
+											<li>{% trans 'Daily cleaning service'%}</li>
+										</ul>
+									</div>
+									<div class="big-spacer"></div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-5 col-md-offset-1">
+								<div id="packages-wrapper-two" class="content-wrapper">
+									<div class="transparentDarkBackground">
+										<h1 class="noTopMargin">{% trans 'Fabulous Package' %}</h1>
+										<ul class="list">
+											<li>{% trans 'Tariff includes 7 nights exclusive stay of maximum 12 people' %}</li>
+											<li>{% trans 'Champagne welcome upon arrival' %}</li>
+											<li>{% trans 'Pre-arrival itinerary build and booking of all services' %}</li>
+											<li>{% trans 'Menu consultation on or before arrival' %}</li>
+											<li>{% trans 'Breakfast provided for 7 days, Dinner for 5 nights and afternoon tea for 7 days' %}</li>
+											<li>{% trans 'Cold snacks are available throughout the day' %}</li>
+											<li>{% trans 'Bottled water, soft drinks, beer and carefully selected house wines are included in your tariff. Special wines from the cellar are available upon request and will be charged separately' %}</li>
+											<li>{% trans 'Shuttle service available to and from the Ski lift. Other transportation, transfers and car rental can be arranged through the One Oak concierge services' %}</li>
+											<li>{% trans 'Daily cleaning and laundry service' %}</li>
+											<li>{% trans '24 hours concierge service' %}</li>
+											<li>{% trans 'Luxury toiletries and amenities in the bathrooms by Bulgari, dressing gowns and slippers' %}</li>
+											<li>{% trans 'Children’s mealtimes to suit you' %}</li>
+											<li>{% trans '3 staff members dedicated to your needs including a carefully selected chef' %}</li>
+											<li>{% trans 'In-resort chauffeured vehicle daily and in the evenings (available 8am – 11pm)' %}</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .tariff -->
+					
+			<section id="tariff" class="tariff parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/tariff.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-6">
+							
+							<div id="tariff-wrapper" class="content-wrapper">
+							<table border="0" cellspacing="0" cellpadding="0" class="tableTariff" width="100%">
+								<tr class="tableTitle">
+									<td colspan="5">{% trans 'CHALET ONE OAK - WINTER (2016-2017)' %}</td>
+								</tr>
+								<tr class="tableHeader">
+									<td>&nbsp;</td>
+									<td>{% trans 'Dates' %}<br />
+										{% trans '(Sun to Sun)' %}</td>
+											<td class="alignLeft">{% trans 'Fabulous' %}</td>
+											<td class="alignLeft">{% trans 'Wonderful' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans 'Sun' %}</td>
+													<td>{% trans 'Mon' %}</td>
+													<td>{% trans 'Tue' %}</td>
+													<td>{% trans 'Wed' %}</td>
+													<td>{% trans 'Thu' %}</td>
+													<td>{% trans 'Fri' %}</td>
+													<td>{% trans 'Sat' %}</td>
+													<td>{% trans 'Sun' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 1' %}</td>
+											<td>{% trans 'Dec 13th - 20th' %}</td>
+											<td class="alignLeft">{% trans '&euro; 26,475' %}</td>
+											<td class="alignLeft">{% trans '&euro; 19.975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '13' %}</td>
+													<td>{% trans '14' %}</td>
+													<td>{% trans '15' %}</td>
+													<td>{% trans '16' %}</td>
+													<td>{% trans '17' %}</td>
+													<td>{% trans '18' %}</td>
+													<td>{% trans '19' %}</td>
+													<td>{% trans '20' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 2' %}</td>
+											<td>{% trans 'Dec 20th - 27th' %}</td>
+											<td>{% trans '&euro; 37,375' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '20' %}</td>
+													<td>{% trans '21' %}</td>
+													<td>{% trans '22' %}</td>
+													<td>{% trans '23' %}</td>
+													<td>{% trans '24' %}</td>
+													<td>{% trans '25' %}</td>
+													<td>{% trans '26' %}</td>
+													<td>{% trans '27' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 3' %}</td>
+											<td>{% trans 'Dec 27th - 3rd' %}</td>
+											<td>{% trans '&euro; 47,375' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '27' %}</td>
+													<td>{% trans '28' %}</td>
+													<td>{% trans '29' %}</td>
+													<td>{% trans '30' %}</td>
+													<td>{% trans '31' %}</td>
+													<td>{% trans '1' %}</td>
+													<td>{% trans '2' %}</td>
+													<td>{% trans '3' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 4' %}</td>
+											<td>{% trans 'Jan 8rd - 15th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '3' %}</td>
+													<td>{% trans '4' %}</td>
+													<td>{% trans '5' %}</td>
+													<td>{% trans '6' %}</td>
+													<td>{% trans '7' %}</td>
+													<td>{% trans '8' %}</td>
+													<td>{% trans '9' %}</td>
+													<td>{% trans '10' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 5' %}</td>
+											<td>{% trans 'Jan 15th - 22th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '10' %}</td>
+													<td>{% trans '11' %}</td>
+													<td>{% trans '12' %}</td>
+													<td>{% trans '13' %}</td>
+													<td>{% trans '14' %}</td>
+													<td>{% trans '15' %}</td>
+													<td>{% trans '16' %}</td>
+													<td>{% trans '17' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 6' %}</td>
+											<td>{% trans 'Jan 22th - 29th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '17' %}</td>
+													<td>{% trans '18' %}</td>
+													<td>{% trans '19' %}</td>
+													<td>{% trans '20' %}</td>
+													<td>{% trans '21' %}</td>
+													<td>{% trans '22' %}</td>
+													<td>{% trans '23' %}</td>
+													<td>{% trans '24' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 7' %}</td>
+											<td>{% trans 'Jan 29th - 5th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td>
+												<table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '24' %}</td>
+													<td>{% trans '25' %}</td>
+													<td>{% trans '26' %}</td>
+													<td>{% trans '27' %}</td>
+													<td>{% trans '28' %}</td>
+													<td>{% trans '29' %}</td>
+													<td>{% trans '30' %}</td>
+													<td>{% trans '31' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 8' %}</td>
+											<td>{% trans 'Feb 5th - 12th' %}</td>
+											<td>{% trans '&euro; 37,375' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '31' %}</td>
+													<td>{% trans '1' %}</td>
+													<td>{% trans '2' %}</td>
+													<td>{% trans '3' %}</td>
+													<td>{% trans '4' %}</td>
+													<td>{% trans '5' %}</td>
+													<td>{% trans '6' %}</td>
+													<td>{% trans '7' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 9' %}</td>
+											<td>{% trans 'Feb 12th - 19th' %}</td>
+											<td>{% trans '&euro; 37,375' %}</td>
+											<td>{% trans 'NA' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '7' %}</td>
+													<td>{% trans '8' %}</td>
+													<td>{% trans '9' %}</td>
+													<td>{% trans '10' %}</td>
+													<td>{% trans '11' %}</td>
+													<td>{% trans '12' %}</td>
+													<td>{% trans '13' %}</td>
+													<td>{% trans '14' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 10' %}</td>
+											<td>{% trans 'Feb 19th - 26th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '14' %}</td>
+													<td>{% trans '15' %}</td>
+													<td>{% trans '16' %}</td>
+													<td>{% trans '17' %}</td>
+													<td>{% trans '18' %}</td>
+													<td>{% trans '19' %}</td>
+													<td>{% trans '20' %}</td>
+													<td>{% trans '21' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 11' %}</td>
+											<td>{% trans 'Feb 26th - 5th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '21' %}</td>
+													<td>{% trans '22' %}</td>
+													<td>{% trans '23' %}</td>
+													<td>{% trans '24' %}</td>
+													<td>{% trans '25' %}</td>
+													<td>{% trans '26' %}</td>
+													<td>{% trans '27' %}</td>
+													<td>{% trans '28' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 12' %}</td>
+											<td>{% trans 'Mar 5th - 12th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '28' %}</td>
+													<td>{% trans '29' %}</td>
+													<td>{% trans '1' %}</td>
+													<td>{% trans '2' %}</td>
+													<td>{% trans '3' %}</td>
+													<td>{% trans '4' %}</td>
+													<td>{% trans '5' %}</td>
+													<td>{% trans '6' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 13' %}</td>
+											<td>{% trans 'Mar 12th - 19th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '6' %}</td>
+													<td>{% trans '7' %}</td>
+													<td>{% trans '8' %}</td>
+													<td>{% trans '9' %}</td>
+													<td>{% trans '10' %}</td>
+													<td>{% trans '11' %}</td>
+													<td>{% trans '12' %}</td>
+													<td>{% trans '13' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 14' %}</td>
+											<td>{% trans 'Mar 19th - 26th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '13' %}</td>
+													<td>{% trans '14' %}</td>
+													<td>{% trans '15' %}</td>
+													<td>{% trans '16' %}</td>
+													<td>{% trans '17' %}</td>
+													<td>{% trans '18' %}</td>
+													<td>{% trans '19' %}</td>
+													<td>{% trans '20' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 15' %}</td>
+											<td>{% trans 'Mar 26th - 2nd' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '20' %}</td>
+													<td>{% trans '21' %}</td>
+													<td>{% trans '22' %}</td>
+													<td>{% trans '23' %}</td>
+													<td>{% trans '24' %}</td>
+													<td>{% trans '25' %}</td>
+													<td>{% trans '26' %}</td>
+													<td>{% trans '27' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="odd">
+											<td>{% trans 'Week 16' %}</td>
+											<td>{% trans 'Apr 2nd - 9th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '27' %}</td>
+													<td>{% trans '28' %}</td>
+													<td>{% trans '29' %}</td>
+													<td>{% trans '30' %}</td>
+													<td>{% trans '31' %}</td>
+													<td>{% trans '1' %}</td>
+													<td>{% trans '2' %}</td>
+													<td>{% trans '3' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+										<tr class="even">
+											<td>{% trans 'Week 17' %}</td>
+											<td>{% trans 'Apr 10rd - 17th' %}</td>
+											<td>{% trans '&euro; 26,475' %}</td>
+											<td>{% trans '&euro; 19,975' %}</td>
+											<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>{% trans '3' %}</td>
+													<td>{% trans '4' %}</td>
+													<td>{% trans '5' %}</td>
+													<td>{% trans '6' %}</td>
+													<td>{% trans '7' %}</td>
+													<td>{% trans '8' %}</td>
+													<td>{% trans '9' %}</td>
+													<td>{% trans '10' %}</td>
+												</tr>
+											</table></td>
+										</tr>
+									</table>
+								</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .tariff -->
+			
+			<section id="press" class="press parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/home.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-9">
+							<div id="press-wrapper" class="content-wrapper press-list">
+								<ul>
+									<li>
+										<div class="press-item">
+											<a href="http://www.cnn.com/2014/01/06/travel/most-luxurious-ski-chalets/" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/cnn.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-cnn.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<!--<li>
+										<div class="press-item">
+											<a href="http://www.destinationsperfected.com/2014/03/megeve-france-chalet-one-oak.html" target="_blank">
+												<div class="press-item-image"><img src="{% static 'image/press/alexandra-foster.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press-over.png' %});"></div>
+											</a>
+										</div>
+									</li>-->
+									<li>
+										<div class="press-item">
+											<a href="http://www.gq.com.au/lifestyle/travel/galleries/the+worlds+10+most+incredible+resorts,26875" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/qg.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-qg.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.cntraveller.com/recommended/ski-holidays/luxury-ski-chalets" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/traveller.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-cn-traveler.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.tatler.com/news/articles/november-2014/travel-tuesday-most-luxurious-chalets" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/tatler.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-tatler.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.centurion-magazine.com/home/travel/experiences/snow-man-s-land.html" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/centurion.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-centurion-magazine.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.luxurytravelmagazine.com/news-articles/abercrombie-kent-villas-best-of-the-best-chalet-awards-2013-18474.php" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/luxury-travel.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-luxury-travel-magazine.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.news.com.au/travel/travel-ideas/the-worlds-most-indulgent-resorts-revealed/story-fnjpj945-1226786354894" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/news-au.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-newsau.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.snowmagazine.com/features/1208-top-tens/top-ten-most-expensive-ski-chalets-in-the-world" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/snow-mag.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-snow-magazine.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.wallpaper.com/gallery/travel/high-altitude-2013-ski-news#47908" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/wallpaper.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-wallpaper.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.standard.co.uk/lifestyle/travel/a-vroom-with-a-view-ski-chalets-in-france-8421871.html" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/evening-standard.png' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-evening-standard.png' %});"></div>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div class="press-item">
+											<a href="http://www.jetsetter.com/feature/worlds-most-amazing-ski-chalets?nm=magazine" target="_blank">
+												<div class="press-item-image"><img data-src="{% static 'image/press/jetsetter.jpg' %}" /></div>
+												<div class="press-item-over" style="background-image: url({% static 'image/press/logo-jetsetter.png' %});"></div>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .press -->
+			
+			<section id="contact" class="contact parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/contact.jpg' %});">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-7 col-md-4">
+							<div id="contact-wrapper" class="content-wrapper">
+								<div class="transparentDarkBackground">
+									<h1 class="noTopMargin">{% trans 'Contact Us' %}</h1>
+									<!-- <div class="spacer"></div> -->
+									<h4>{% trans 'Address:' %}</h4>
+									<p>{% trans 'Chalet One Oak' %}<br/>{% trans 'Combloux - France - 74920' %}</p>
+									<h4>{% trans 'Operated and managed by:' %}</h4>
+									<p>{% trans 'One Oak Lifestyle Management Services (OALMS)' %}<br/>{% trans 'London - United Kingdom' %}</p>
+									<h4>{% trans 'Email:' %}</h4>
+									<p><a href="mailto:{% trans 'mystay@chaletoneoak.com' %}">{% trans 'mystay@chaletoneoak.com' %}</a></p>
+									<h4>{% trans 'Brochure:' %}</h4>
+									<p><a href="{% static 'pdf/oneoak.pdf' %}" target="_blank">{% trans 'PDF Brochure' %}</a> | <a href="https://www.youtube.com/watch?v=_WYE9a5elig" class="brochure-video">{% trans 'Video Brochure' %}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End .contact -->
+			
+			<section id="gallery" class="gallery parallax pageSection section" data-background-speed-y="0.5" data-parallax-align="top" data-parallax-height="100" data-parallax-offset-y-percent="-10" style="background-image: url({% static 'image/bg/home.jpg' %});">
+				<div class="container">
+					<div id="gallery-wrapper" class="content-wrapper">
+						
+						
+						<div class="dgWrap">
+							<div id='row_0' class='gallery_row 4v0h'></div>
+							<div id='row_1' class='gallery_row 3v0h'></div>
+							<div id='row_2' class='gallery_row 2v1h'></div>
+							<div id='row_3' class='gallery_row 3v0h'></div>
+							<div id='row_4' class='gallery_row 1v2h'></div>
+							<div id='row_5' class='gallery_row 4v0h'></div>
+							<div id='row_6' class='gallery_row 2v1h'></div>
+							<div id='row_7' class='gallery_row 2v1h'></div>
+							<div id='row_8' class='gallery_row 4v0h'></div>
+							<div id='row_9' class='gallery_row 4v0h'></div>
+							<div id='row_10' class='gallery_row 2v1h'></div>
+							<div id='row_11' class='gallery_row 4v0h'></div>
+							<div id='row_12' class='gallery_row 4v0h'></div>
+							<div id='row_13' class='gallery_row 4v0h'></div>
+							<div id='row_14' class='gallery_row 4v0h'></div>
+							<div id='row_15' class='gallery_row 4v0h'></div>
+							<div id='row_16' class='gallery_row 4v0h'></div>
+							<div id='row_17' class='gallery_row 4v0h'></div>
+							<div id='row_18' class='gallery_row 2v1h'></div>
+							<div id='row_19' class='gallery_row 4v0h'></div>
+							<div id='row_20' class='gallery_row 4v0h'></div>
+							<div id='row_21' class='gallery_row 4v0h'></div>
+							<div id='row_22' class='gallery_row 4v0h'></div>
+							<div id='row_23' class='gallery_row 3v0h'></div>
+							<div id='row_24' class='gallery_row 2v1h'></div>
+							<div id='row_25' class='gallery_row 4v0h'></div>
+							<div id='row_26' class='gallery_row 4v0h'></div>
+							<div id='row_27' class='gallery_row 4v0h'></div>
+							<div id='row_28' class='gallery_row 2v1h'></div>
+							<div id='row_29' class='gallery_row 4v0h'></div>
+							<div id='row_30' class='gallery_row 4v0h'></div>
+							<div id='row_31' class='gallery_row 4v0h'></div>
+							<div id='row_32' class='gallery_row 3v0h'></div>
+							<div id='row_33' class='gallery_row 2v1h'></div>
+							<div id='row_34' class='gallery_row 4v0h'></div>
+							<div id='row_35' class='gallery_row 2v1h'></div>
+							<div id='row_36' class='gallery_row 4v0h'></div>
+							<div id='row_37' class='gallery_row 4v0h'></div>
+							<div id='row_38' class='gallery_row 4v0h'></div>
+							<div id='row_39' class='gallery_row 4v0h'></div>
+							<div id='row_40' class='gallery_row 4v0h'></div>
+							<div id='row_41' class='gallery_row 3v0h'></div>
+							<div id='row_42' class='gallery_row 2v1h'></div>
+							<div id='row_43' class='gallery_row 4v0h'></div>
+							<div id='row_44' class='gallery_row 4v0h'></div>
+							<div id='row_45' class='gallery_row 4v0h'></div>
+							<div id='row_46' class='gallery_row 4v0h'></div>
+							<div id='row_47' class='gallery_row last_row 2v0h'></div>
+							<div class='clear'></div>
+						</div>
+						<!-- End .dgWrap -->
+						
+						
+						<script>
+	
+							var max_container_width=1396;
+	
+							var gallery_img = [  
+						   // row 1
+						   {  
+						      "src":"{% static 'image/gallery/_MG_0844a-thumb.jpg' %}",
+						      "width":"25%",
+						      "max_height_px":488.30042918455,
+						      "row":0,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1001",
+						      "title":"dolce and gabbana winter 2016 man collection 01"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_0906a-thumb.jpg' %}",
+						      "width":"25%",
+						      "max_height_px":488.30042918455,
+						      "row":0,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1002",
+						      "title":"dolce and gabbana winter 2016 man collection 02"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1388a-thumb.jpg' %}",
+						      "width":"25%",
+						      "max_height_px":488.30042918455,
+						      "row":0,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1003",
+						      "title":"dolce and gabbana winter 2016 man collection 03"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_0969a-thumb.jpg' %}",
+						      "width":"25%",
+						      "max_height_px":488.30042918455,
+						      "row":0,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1004",
+						      "title":"dolce and gabbana winter 2016 man collection 04"
+						   },
+						   
+						   // row 2
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1341a-thumb.jpg' %}",
+						      "width":"74.964209019327%",
+						      "max_height_px":488.64996420902,
+						      "row":1,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1005",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1569a-thumb.jpg' %}",
+						      "width":"25.017895490336%",
+						      "max_height_px":488.64996420902,
+						      "row":1,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=106",
+						      "title":"dolce and gabbana winter 2016 man collection 10"
+						   },
+						   
+						   // row 3
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1009a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":651.06723891273,
+						      "row":2,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1007",
+						      "title":"dolce and gabbana winter 2016 man collection 05"
+						   },
+						   {  
+						     "src":"{% static 'image/gallery/_MG_1069a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":651.06723891273,
+						      "row":2,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1008",
+						      "title":"dolce and gabbana winter 2016 man collection 06"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1287a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":651.06723891273,
+						      "row":1,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1009",
+						      "title":"dolce and gabbana winter 2016 man collection 07"
+						   },
+						   
+						   // row 4
+						   {  
+						      "src":"{% static 'image/gallery/_MG_0945a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":488.64996420902,
+						      "row":3,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1010",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_0996a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":488.64996420902,
+						      "row":3,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1011",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   
+						   // row 5
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1108a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":651.06723891273,
+						      "row":4,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1012",
+						      "title":"dolce and gabbana winter 2016 man collection 11"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1341a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":651.06723891273,
+						      "row":4,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1013",
+						      "title":"dolce and gabbana winter 2016 man collection 11"
+						   },
+						   
+						   // row 6
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1507a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":5,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1014",
+						      "title":"dolce and gabbana winter 2016 man collection 14"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1696a-thumb.jpg' %}",
+						      "width":"20.022916069894%",
+						      "max_height_px":391.08794041822,
+						      "row":5,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1015",
+						      "title":"dolce and gabbana winter 2016 man collection 16"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1522a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":5,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1016",
+						      "title":"dolce and gabbana winter 2016 man collection 15"
+						   },
+						   
+						   // row 7
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1210a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":6,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1017",
+						      "title":"dolce and gabbana winter 2016 man collection 14"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1219a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":6,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1018",
+						      "title":"dolce and gabbana winter 2016 man collection 15"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1441a-thumb.jpg' %}",
+						      "width":"20.022916069894%",
+						      "max_height_px":391.08794041822,
+						      "row":6,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1019",
+						      "title":"dolce and gabbana winter 2016 man collection 16"
+						   },
+						   
+						   // row 8
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1648a-thumb.jpg' %}",
+						      "width":"99.964209019327%",
+						      "max_height_px":651.06723891273,
+						      "row":7,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1020",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   
+						   // row 9
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1747a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":488.64996420902,
+						      "row":8,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1021",
+						      "title":"dolce and gabbana winter 2016 man collection 09"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1341a-thumb.jpg' %}",
+						      "width":"49.964209019327%",
+						      "max_height_px":488.64996420902,
+						      "row":8,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1022",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   
+						   // row 10
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1735a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":9,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1023",
+						      "title":"dolce and gabbana winter 2016 man collection 14"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1729a-thumb.jpg' %}",
+						      "width":"20.022916069894%",
+						      "max_height_px":391.08794041822,
+						      "row":9,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1024",
+						      "title":"dolce and gabbana winter 2016 man collection 16"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1756a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":9,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1025",
+						      "title":"dolce and gabbana winter 2016 man collection 15"
+						   },
+						   
+						   // row 11
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1825a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":391.08794041822,
+						      "row":10,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1026",
+						      "title":"dolce and gabbana winter 2016 man collection 05"
+						   },
+						   {  
+						     "src":"{% static 'image/gallery/_MG_1848a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":391.08794041822,
+						      "row":10,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1027",
+						      "title":"dolce and gabbana winter 2016 man collection 06"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/_MG_1890a-thumb.jpg' %}",
+						      "width":"33.333333333333%",
+						      "max_height_px":391.08794041822,
+						      "row":10,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1028",
+						      "title":"dolce and gabbana winter 2016 man collection 07"
+						   },
+						   
+						   // row 12
+						   {  
+						      "src":"{% static 'image/gallery/2a-thumb.jpg' %}",
+						      "width":"99.964209019327%",
+						      "max_height_px":651.06723891273,
+						      "row":11,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1029",
+						      "title":"dolce and gabbana winter 2016 man collection 08"
+						   },
+						   
+						   // row 13
+						   {  
+						      "src":"{% static 'image/gallery/1-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":12,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1030",
+						      "title":"dolce and gabbana winter 2016 man collection 14"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/3-thumb.jpg' %}",
+						      "width":"20.022916069894%",
+						      "max_height_px":391.08794041822,
+						      "row":12,
+						      "type":"vertical",
+						      "url":"{% url 'gallery' %}?i=1031",
+						      "title":"dolce and gabbana winter 2016 man collection 16"
+						   },
+						   {  
+						      "src":"{% static 'image/gallery/4a-thumb.jpg' %}",
+						      "width":"39.988541965053%",
+						      "max_height_px":391.08794041822,
+						      "row":12,
+						      "type":"horizontal",
+						      "url":"{% url 'gallery' %}?i=1032",
+						      "title":"dolce and gabbana winter 2016 man collection 15"
+						   },
+						   
+						   
+							];
+							
+						</script>
+						
+					</div>
+				</div>
+			</section>
+			<!-- End .gallery -->
+			
+		</section>
+		
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="powered-by pull-right">
+							<span>Powered by </span>
+							<a href="http://www.dreamtek.in" target="_blank"><img src="{% static 'image/logo-dreamtek.png' %}"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+	</section>
+	
+	<script type="text/javascript" src="{% static 'js/jquery/jquery-1.11.3.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/vendors/jquery.easings.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/vendors/jquery.slimscroll.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery/jquery.fullPage.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery/jquery.mousewheel.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery/plugins.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/hammer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery/jquery.hammer.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/gallery.plugins.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/gallery.jplayer.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/gallery.js' %}"></script>
+
+</body>
+</html>
