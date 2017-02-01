@@ -1,0 +1,324 @@
+$(function() {
+	$window = $(window);
+	$menuEl = $('.mainNav ul');
+	$pageSectionEl = $('.pageSection');
+	$isScrolling = false;
+	$disabledScrollWhellEl = ['press-item-over', 'overlay-plus-icon', 'tableTariff']
+	
+	
+	////////////////////////////////////////////////////
+	//Show/Hide .mainNav
+	////////////////////////////////////////////////////
+	$('.viewNav').click(function(){
+		$menuEl.scrollTop(0);
+		$('.mainNav').toggleClass('navClose');
+		
+		$menuTop = $menuEl.offsetParent().position().top;
+		$menuHeight = $menuEl.height()
+		if (($menuTop + $menuHeight) > $window.height()) {
+			$menuEl.css('max-height', ($window.height() - $menuTop - 25));
+			$menuEl.css('overflow', 'auto');
+		}
+	});
+	
+	
+	////////////////////////////////////////////////////
+	//Menu Click
+	//scroll and mobile menu visibility toogle
+	////////////////////////////////////////////////////
+	$(".mainNav a").click(function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		
+		$this.parent().parent().find('li').removeClass('current');
+		$this.parent().addClass('current');
+		$target = $(this.href.substr(this.href.indexOf('#')));
+		
+		if ($target.length > 0) {
+			$('html, body').stop(true).animate({
+				scrollTop: $target.offset().top
+			}, 1000);
+		}
+		
+		$('.mainNav').toggleClass('navClose');
+	});
+	
+
+	////////////////////////////////////////////////////
+	//Background Height for Mobile
+	////////////////////////////////////////////////////
+	if($(window).width() <= 1024){
+		$pageSectionEl.each(function(index) {
+			$(this).css('min-height', $(window).height());
+		});
+	}
+
+
+	////////////////////////////////////////////////////
+	//Only for Desktop
+	////////////////////////////////////////////////////
+	if($(window).width() > 1024){
+		
+		////////////////////////////////////////////////////
+		//Start Parallax
+		////////////////////////////////////////////////////
+		$(fullscreenParallax);
+		
+		////////////////////////////////////////////////////
+		//Menu Click
+		//add section class to menu
+		////////////////////////////////////////////////////
+		$(".mainNav a").click(function(e) {
+			var $this = $(this);
+			$target = $(this.href.substr(this.href.indexOf('#')));
+		
+			if ($target.length > 0) {
+				$('.mainNav ul').removeClass('connection');
+				$('.mainNav ul').removeClass('revive');
+				$('.mainNav ul').removeClass('play');
+				$('.mainNav ul').removeClass('indulge');
+				$('.mainNav ul').removeClass('wine');
+				$('.mainNav ul').removeClass('thechalet');
+				$('.mainNav ul').removeClass('megeve');
+				$('.mainNav ul').removeClass('summer');
+				$('.mainNav ul').removeClass('tariff');
+				$('.mainNav ul').removeClass('press');
+				$('.mainNav ul').removeClass('contact');
+			
+				if ($target.attr('id') == 'connection') {
+					$('.mainNav ul').addClass('connection');
+				} else if ($target.attr('id') == 'revive') {
+					$('.mainNav ul').addClass('revive');
+				} else if ($target.attr('id') == 'play') {
+					$('.mainNav ul').addClass('play');
+				} else if ($target.attr('id') == 'indulge') {
+					$('.mainNav ul').addClass('indulge');
+				} else if ($target.attr('id') == 'wine') {
+					$('.mainNav ul').addClass('wine');
+				} else if ($target.attr('id') == 'thechalet') {
+					$('.mainNav ul').addClass('thechalet');
+				} else if ($target.attr('id') == 'megeve') {
+					$('.mainNav ul').addClass('megeve');
+				} else if ($target.attr('id') == 'summer') {
+					$('.mainNav ul').addClass('summer');
+				} else if ($target.attr('id') == 'tariff') {
+					$('.mainNav ul').addClass('tariff');
+				} else if ($target.attr('id') == 'press') {
+					$('.mainNav ul').addClass('press');
+				} else if ($target.attr('id') == 'contact') {
+					$('.mainNav ul').addClass('contact');
+				}			
+			}
+		});
+		
+		////////////////////////////////////////////////////
+		//On Window Scroll
+		////////////////////////////////////////////////////
+		$window.scrolled(function() {
+			onepageScroller();
+		});
+		
+	}
+
+
+	////////////////////////////////////////////////////
+	//Brochure Video
+	////////////////////////////////////////////////////
+	$(document).ready(function() {
+		$('.brochure-video').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+			fixedContentPos: false
+		});
+	});
+	
+  
+	////////////////////////////////////////////////////
+	//Scroll Snap
+	////////////////////////////////////////////////////
+	$(document).mousewheel(function(event){
+		if(!$isScrolling){
+			$isScrolling = true;
+			snapContent(event);
+		}
+	});
+	
+	$(document).ready(function() {
+		GD_Gallery.init();
+	});
+	
+	
+	////////////////////////////////////////////////////
+	//Content Fade
+	////////////////////////////////////////////////////
+	$window.scrolled(function() {
+		$target = $('#' + getCurrentSection()).addClass('section-active');
+	});
+	
+	
+	////////////////////////////////////////////////////
+	//Adjust height of content-wrappers
+	////////////////////////////////////////////////////
+	$pageSectionEl.each(function(index) {
+		var sectionHeight = $( window ).height();
+		var containerHeight = $(this).find('.container').height();
+		var containerTopPadding = parseInt($(this).find('.container').css('padding-top'));
+		var contentWrapper = $(this).find('.content-wrapper');
+		
+		if (contentWrapper.length > 0) {
+			contentWrapper.css('height', (sectionHeight - (containerTopPadding + 30)));
+			
+			// prevent browser scroll on div scroll
+			var height = contentWrapper.height();
+			
+			contentWrapper.bind('mousewheel', function(e, d) {
+				var scrollHeight = contentWrapper.get(0).scrollHeight;
+				if(height != scrollHeight){
+					if((this.scrollTop === (scrollHeight - height) && d < 0) || (this.scrollTop === 0 && d > 0)) {
+						e.preventDefault();
+					}
+				}
+			});
+		}
+
+	});
+	
+
+});
+
+function snapContent(event){
+	var className = event.target.className;
+	
+	if (className == '') {
+		className = event.target.offsetParent.className;
+	}
+	
+	if(jQuery.inArray(className, $disabledScrollWhellEl) == -1){
+		event.preventDefault()
+		event.stopPropagation();
+		
+		//if (!$isScrolling) {
+			if (event.originalEvent.wheelDelta > 0) {
+		    	// scroll up
+				var previus = getPreviusSection();
+				if (previus) {
+					$isScrolling = true;
+					// fade out the content
+					$pageSectionEl.removeClass('section-active');
+					
+					$(document).unmousewheel();
+					console.log('start up')
+					$('body').stop(true).animate({
+						scrollTop: $('#' + previus).offset().top
+					}, 600, function (){
+						setTimeout(function(){ 
+							$isScrolling = false;
+							$(document).mousewheel(function(event){
+								if(!$isScrolling){
+									$isScrolling = true;
+									snapContent(event);
+								}
+							});
+							
+						}, 1000);
+					});
+				}
+		    } else {
+		    	// scroll down
+				var next = getNextSection();
+				if (next) {
+					$isScrolling = true;
+					// fade out the content
+					$pageSectionEl.removeClass('section-active');
+					
+					$(document).unmousewheel();
+					console.log('start up')
+					$('body').stop(true).animate({
+						scrollTop: $('#' + next).offset().top
+					}, 600, function (){
+						setTimeout(function(){ 
+							$isScrolling = false;
+							$(document).mousewheel(function(event){
+								if(!$isScrolling){
+									$isScrolling = true;
+									snapContent(event);
+								}
+							});
+							
+						}, 1000);
+					});
+				}
+		    }
+		//}
+	} else {
+		$isScrolling = false;
+	}
+}
+
+function onepageScroller(){
+	var currentSection;
+	
+	currentSection = getCurrentSection();
+	
+	$menuEl.removeClass();
+	$menuEl.addClass(currentSection);
+	
+	// set active menu
+	var menuItem = $menuEl.find('a[href="#' + currentSection + '"]').parent();
+	$menuEl.find('li').removeClass('current');
+	menuItem.addClass('current');
+}
+
+function getCurrentSection(){
+	var currentOnePageSection = 'home';
+
+	$pageSectionEl.each(function(index) {
+		var h = $(this).offset().top;
+		var y = $window.scrollTop();
+		var offsetScroll = 0;
+
+		if( y + offsetScroll >= h && y < h + $(this).height() && $(this).attr('id') != currentOnePageSection ) {
+			currentOnePageSection = $(this).attr('id');
+		}
+	});
+
+	return currentOnePageSection;
+}
+
+function getPreviusSection() {
+	var previusSection = undefined;
+	var currentSectionIndex = getSectionIndex(getCurrentSection());
+	
+	if (currentSectionIndex > 0) {
+		previusSection = $pageSectionEl[currentSectionIndex - 1].id;
+	}
+	
+	return previusSection;
+}
+
+function getNextSection() {
+	var nextSection = undefined;
+	var currentSectionIndex = getSectionIndex(getCurrentSection());
+	
+	if (currentSectionIndex < ($pageSectionEl.length - 1)) {
+		nextSection = $pageSectionEl[currentSectionIndex + 1].id;
+	}	
+	
+	return nextSection;
+}
+
+function getSectionIndex(sectionId){
+	var index = -1;
+	
+	for (var i = 0; i < $pageSectionEl.length; i ++) {
+		if ($pageSectionEl[i].id == sectionId) {
+			index = i;
+			break;
+		}
+	}
+	
+	return index;
+}
