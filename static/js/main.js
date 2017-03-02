@@ -186,9 +186,9 @@ $(document).ready(function() {
 	
 	
 	
-	$('#intro-video').append('<source src="http://oneoak.dreamtek.in/static/video/one-oak-full.mp4?t='+Date.now()+'" type="video/mp4">');
-	$('#intro-video').append('<source src="http://oneoak.dreamtek.in/static/video/one-oak-full.ogg?t='+Date.now()+'" type="video/ogg">');
-	$('#intro-video').append('<source src="http://oneoak.dreamtek.in/static/video/one-oak-full.webm?t='+Date.now()+'" type="video/webm">');
+	$('#intro-video').append('<source src="http://chaletoneoak.com/oneoak.static/static/video/one-oak-full.mp4?t='+Date.now()+'" type="video/mp4">');
+	$('#intro-video').append('<source src="http://chaletoneoak.com/oneoak.static/static/video/one-oak-full.ogg?t='+Date.now()+'" type="video/ogg">');
+	$('#intro-video').append('<source src="http://chaletoneoak.com/oneoak.static/static/video/one-oak-full.webm?t='+Date.now()+'" type="video/webm">');
 	
 	
 	////////////////////////////////////////////////////
